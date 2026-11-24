@@ -653,36 +653,41 @@
                 Request an introduction to relevant opportunities and upcoming off-market projects aligned with your investment brief.
               </p>
             </div>
-            <form id="partner-form" class="mt-7" novalidate>
-              <input type="hidden" id="profile-value" name="profile" value="Funder / Investor">
-              <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
-                <div>
-                  <label class="form-label" for="name">Your name</label>
-                  <input class="form-control" id="name" name="name" autocomplete="name" placeholder="Name" required>
-                </div>
-                <div>
-                  <label class="form-label" for="email">Email address</label>
-                  <input class="form-control" id="email" name="email" type="email" autocomplete="email" placeholder="name@company.co.uk" required>
-                </div>
-                <div class="sm:col-span-2">
-                  <label class="form-label" for="organisation">Organisation <span class="font-normal normal-case tracking-normal">(optional)</span></label>
-                  <input class="form-control" id="organisation" name="organisation" autocomplete="organization" placeholder="Company or organisation">
-                </div>
-                <div class="sm:col-span-2">
-                  <label class="form-label" for="message">A little about what you’re looking for</label>
-                  <textarea class="form-control" id="message" name="message" placeholder="Your brief, interests or area of expertise"></textarea>
-                </div>
-              </div>
-              <div class="mt-7">
-                <button class="submit-button flex items-center justify-between" type="submit">
-                  <span>Request a conversation</span><span aria-hidden="true">↗</span>
-                </button>
-                <p class="mt-3 text-[10px] leading-5 text-[#85827b]">
-                  By submitting, you agree that Barkertons may use your details to respond to your enquiry.
-                </p>
-                <p id="form-status" class="mt-3 hidden text-[12px] leading-5" role="status" aria-live="polite"></p>
-              </div>
-            </form>
+           <form id="partner-form" class="mt-7" action="https://api.web3forms.com/submit" method="POST" novalidate>
+  <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+  <input type="hidden" name="subject" id="email-subject" value="Barkertons enquiry — Funder / Investor">
+  <input type="hidden" id="profile-value" name="profile" value="Funder / Investor">
+  <!-- Honeypot spam protection (stays hidden from real visitors) -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+  <div class="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+    <div>
+      <label class="form-label" for="name">Your name</label>
+      <input class="form-control" id="name" name="name" autocomplete="name" placeholder="Name" required>
+    </div>
+    <div>
+      <label class="form-label" for="email">Email address</label>
+      <input class="form-control" id="email" name="email" type="email" autocomplete="email" placeholder="name@company.co.uk" required>
+    </div>
+    <div class="sm:col-span-2">
+      <label class="form-label" for="organisation">Organisation <span class="font-normal normal-case tracking-normal">(optional)</span></label>
+      <input class="form-control" id="organisation" name="organisation" autocomplete="organization" placeholder="Company or organisation">
+    </div>
+    <div class="sm:col-span-2">
+      <label class="form-label" for="message">A little about what you’re looking for</label>
+      <textarea class="form-control" id="message" name="message" placeholder="Your brief, interests or area of expertise"></textarea>
+    </div>
+  </div>
+  <div class="mt-7">
+    <button id="submit-btn" class="submit-button flex items-center justify-between" type="submit">
+      <span id="submit-label">Request a conversation</span><span aria-hidden="true">↗</span>
+    </button>
+    <p class="mt-3 text-[10px] leading-5 text-[#85827b]">
+      By submitting, you agree that Barkertons may use your details to respond to your enquiry.
+    </p>
+    <p id="form-status" class="mt-3 hidden text-[12px] leading-5" role="status" aria-live="polite"></p>
+  </div>
+</form>
           </div>
         </div>
       </div>
