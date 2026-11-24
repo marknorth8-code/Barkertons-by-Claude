@@ -502,7 +502,7 @@
             </h2>
             <div class="mt-10 grid gap-8 border-t border-white/20 pt-7 md:grid-cols-[1fr_1fr]">
               <p class="text-[14px] leading-7 text-white/75">
-                We focus on smaller commercial, mixed-use, development and change of use opportunities, guiding private investors through every stage of ownership..
+                We focus on smaller commercial, mixed-use, development and change of use opportunities, guiding private investors through every stage of ownership.
               </p>
               <p class="text-[14px] leading-7 text-white/75">
                 When our multidisciplinary network uncovers off-market opportunities outside that focused brief, we package them directly and transparently for our retained partners.
@@ -823,4 +823,27 @@
       const data = new FormData(form);
       const subject = encodeURIComponent("Barkertons enquiry — " + data.get("profile"));
       const body = encodeURIComponent(
-        "
+        "Profile: " + data.get("profile") + "\n" +
+        "Name: " + data.get("name") + "\n" +
+        "Email: " + data.get("email") + "\n" +
+        "Organisation: " + (data.get("organisation") || "Not provided") + "\n\n" +
+        "Enquiry:\n" + (data.get("message") || "No additional details provided")
+      );
+      status.textContent = "Your email application will open with your enquiry ready to send.";
+      status.classList.add("text-green-800");
+      window.location.href = "mailto:?subject=" + subject + "&body=" + body;
+    });
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
