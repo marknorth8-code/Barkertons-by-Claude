@@ -653,7 +653,7 @@
                 Request an introduction to relevant opportunities and upcoming off-market projects aligned with your investment brief.
               </p>
             </div>
-            <form id="partner-form" class="mt-7" action="https://api.web3forms.com/submit" method="POST" novalidate>
+           <form id="partner-form" class="mt-7" action="https://api.web3forms.com/submit" method="POST" novalidate>
               <input type="hidden" name="access_key" value="c716b66d-b421-4162-ad95-88ad120a1571">
               <input type="hidden" name="subject" id="email-subject" value="Barkertons enquiry — Investor / Developer">
               <input type="hidden" id="profile-value" name="profile" value="Investor / Developer">
@@ -669,7 +669,11 @@
                   <label class="form-label" for="email">Email address</label>
                   <input class="form-control" id="email" name="email" type="email" autocomplete="email" placeholder="name@company.co.uk" required>
                 </div>
-                <div class="sm:col-span-2">
+                <div>
+                  <label class="form-label" for="phone">Telephone <span class="font-normal normal-case tracking-normal">(optional)</span></label>
+                  <input class="form-control" id="phone" name="phone" type="tel" autocomplete="tel" placeholder="07700 900000">
+                </div>
+                <div>
                   <label class="form-label" for="organisation">Organisation <span class="font-normal normal-case tracking-normal">(optional)</span></label>
                   <input class="form-control" id="organisation" name="organisation" autocomplete="organization" placeholder="Company or organisation">
                 </div>
