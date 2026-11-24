@@ -85,22 +85,24 @@
       color: inherit;
       text-decoration: none;
     }
-    .brand-symbol {
-      width: 27px;
-      height: 27px;
-      border: 1px solid var(--bronze);
-      display: grid;
-      place-items: center;
-      position: relative;
+    .brand-mark-svg {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      display: block;
     }
-    .brand-symbol::before,
-    .brand-symbol::after {
-      content: "";
-      position: absolute;
-      background: var(--bronze);
+    .brand-mark-svg--footer {
+      width: 28px;
+      height: 28px;
     }
-    .brand-symbol::before { width: 1px; height: 17px; }
-    .brand-symbol::after { width: 17px; height: 1px; }
+    .brand-cutout {
+      fill: #121214;
+      transition: fill .28s ease;
+    }
+    .site-header.is-scrolled .brand-cutout,
+    footer .brand-cutout {
+      fill: var(--paper);
+    }
     .nav-link {
       position: relative;
       color: rgba(255, 255, 255, .82);
@@ -392,7 +394,37 @@
   <header id="site-header" class="site-header">
     <div class="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-4 md:px-10">
       <a class="brand-mark" href="#top" aria-label="Barkertons home">
-        <span class="brand-symbol" aria-hidden="true"></span>
+        <svg class="brand-mark-svg" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <!-- Outer finder ring -->
+          <circle cx="50" cy="50" r="34" stroke="var(--bronze)" stroke-width="5.5" />
+          <!-- Crosshair ticks -->
+          <line x1="50" y1="4" x2="50" y2="16" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="50" y1="84" x2="50" y2="96" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="4" y1="50" x2="18" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="82" y1="50" x2="96" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <!-- Cutout backing so the B stands out cleanly over video or paper -->
+          <circle cx="50" cy="50" r="28.5" class="brand-cutout" />
+          <!-- Interlocking architectural 'B' monogram -->
+          <path
+            d="M36 25 H54.5 C62.5 25 67.5 29.3 67.5 36.2 C67.5 41.2 64.6 44.8 60.2 46.6 C65.8 48.3 69.2 52.5 69.2 58.6 C69.2 66.5 63.4 72 54.2 72 H36 Z"
+            stroke="var(--bronze)"
+            stroke-width="5.5"
+            stroke-linejoin="miter"
+          />
+          <line x1="39" y1="48.5" x2="61.5" y2="48.5" stroke="var(--bronze)" stroke-width="5" />
+          <path
+            d="M44.5 32.5 H53.5 C57.6 32.5 60 34.4 60 37.5 C60 40.6 57.6 42.5 53.5 42.5 H44.5 Z"
+            stroke="var(--bronze)"
+            stroke-width="4"
+          />
+          <path
+            d="M44.5 54.5 H54.5 C59.2 54.5 61.8 56.8 61.8 60.2 C61.8 63.6 59.2 65.8 54.5 65.8 H44.5 Z"
+            stroke="var(--bronze)"
+            stroke-width="4"
+          />
+          <!-- Vertical spine accent -->
+          <line x1="50" y1="22" x2="50" y2="78" stroke="var(--bronze)" stroke-width="2.5" />
+        </svg>
         <span class="text-[15px] font-bold tracking-[.2em]">BARKERTONS</span>
       </a>
       <nav class="hidden items-center gap-9 md:flex" aria-label="Main navigation">
@@ -660,7 +692,32 @@
   <footer class="border-t border-black/15 bg-paper">
     <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-5 px-5 py-7 sm:flex-row sm:items-center md:px-10">
       <a class="brand-mark" href="#top" aria-label="Barkertons, back to top">
-        <span class="brand-symbol" aria-hidden="true"></span>
+        <svg class="brand-mark-svg brand-mark-svg--footer" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <circle cx="50" cy="50" r="34" stroke="var(--bronze)" stroke-width="5.5" />
+          <line x1="50" y1="4" x2="50" y2="16" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="50" y1="84" x2="50" y2="96" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="4" y1="50" x2="18" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <line x1="82" y1="50" x2="96" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
+          <circle cx="50" cy="50" r="28.5" class="brand-cutout" />
+          <path
+            d="M36 25 H54.5 C62.5 25 67.5 29.3 67.5 36.2 C67.5 41.2 64.6 44.8 60.2 46.6 C65.8 48.3 69.2 52.5 69.2 58.6 C69.2 66.5 63.4 72 54.2 72 H36 Z"
+            stroke="var(--bronze)"
+            stroke-width="5.5"
+            stroke-linejoin="miter"
+          />
+          <line x1="39" y1="48.5" x2="61.5" y2="48.5" stroke="var(--bronze)" stroke-width="5" />
+          <path
+            d="M44.5 32.5 H53.5 C57.6 32.5 60 34.4 60 37.5 C60 40.6 57.6 42.5 53.5 42.5 H44.5 Z"
+            stroke="var(--bronze)"
+            stroke-width="4"
+          />
+          <path
+            d="M44.5 54.5 H54.5 C59.2 54.5 61.8 56.8 61.8 60.2 C61.8 63.6 59.2 65.8 54.5 65.8 H44.5 Z"
+            stroke="var(--bronze)"
+            stroke-width="4"
+          />
+          <line x1="50" y1="22" x2="50" y2="78" stroke="var(--bronze)" stroke-width="2.5" />
+        </svg>
         <span class="text-[12px] font-bold tracking-[.2em]">BARKERTONS</span>
       </a>
       <p class="text-[10px] uppercase tracking-[.12em] text-[#77736d]">Commercial property, considered.</p>
@@ -766,27 +823,4 @@
       const data = new FormData(form);
       const subject = encodeURIComponent("Barkertons enquiry — " + data.get("profile"));
       const body = encodeURIComponent(
-        "Profile: " + data.get("profile") + "\n" +
-        "Name: " + data.get("name") + "\n" +
-        "Email: " + data.get("email") + "\n" +
-        "Organisation: " + (data.get("organisation") || "Not provided") + "\n\n" +
-        "Enquiry:\n" + (data.get("message") || "No additional details provided")
-      );
-      status.textContent = "Your email application will open with your enquiry ready to send.";
-      status.classList.add("text-green-800");
-      window.location.href = "mailto:?subject=" + subject + "&body=" + body;
-    });
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
-  </script>
-</body>
-</html>
+        "
