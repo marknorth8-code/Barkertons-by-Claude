@@ -84,8 +84,13 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border-top: 1px solid var(--line);
-      background: rgba(247, 247, 245, .95);
+      border-top: 1px solid var(--light-line);
+      background:
+        linear-gradient(rgba(255, 255, 255, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .025) 1px, transparent 1px),
+        rgba(18, 18, 20, .96);
+      background-size: 52px 52px;
+      color: #f7f7f5;
       backdrop-filter: blur(14px);
       opacity: 0;
       transform: translateY(100%);
@@ -110,16 +115,11 @@
       flex-shrink: 0;
       display: block;
     }
-    .brand-mark-svg--footer {
-      width: 28px;
-      height: 28px;
-    }
     .brand-cutout {
       fill: #121214;
       transition: fill .28s ease;
     }
-    .site-header.is-scrolled .brand-cutout,
-    footer .brand-cutout {
+    .site-header.is-scrolled .brand-cutout {
       fill: var(--paper);
     }
     .nav-link {
@@ -731,43 +731,14 @@
     </section>
   </main>
 
-  <footer id="site-footer" class="site-footer bg-paper">
-    <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-5 px-5 py-4 sm:flex-row sm:items-center md:px-10">
-      <a class="brand-mark" href="#top" aria-label="Barkertons, back to top">
-        <svg class="brand-mark-svg brand-mark-svg--footer" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-          <circle cx="50" cy="50" r="34" stroke="var(--bronze)" stroke-width="5.5" />
-          <line x1="50" y1="4" x2="50" y2="16" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
-          <line x1="50" y1="84" x2="50" y2="96" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
-          <line x1="4" y1="50" x2="18" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
-          <line x1="82" y1="50" x2="96" y2="50" stroke="var(--bronze)" stroke-width="5" stroke-linecap="square" />
-          <circle cx="50" cy="50" r="28.5" class="brand-cutout" />
-          <path
-            d="M36 25 H54.5 C62.5 25 67.5 29.3 67.5 36.2 C67.5 41.2 64.6 44.8 60.2 46.6 C65.8 48.3 69.2 52.5 69.2 58.6 C69.2 66.5 63.4 72 54.2 72 H36 Z"
-            stroke="var(--bronze)"
-            stroke-width="5.5"
-            stroke-linejoin="miter"
-          />
-          <line x1="39" y1="48.5" x2="61.5" y2="48.5" stroke="var(--bronze)" stroke-width="5" />
-          <path
-            d="M44.5 32.5 H53.5 C57.6 32.5 60 34.4 60 37.5 C60 40.6 57.6 42.5 53.5 42.5 H44.5 Z"
-            stroke="var(--bronze)"
-            stroke-width="4"
-          />
-          <path
-            d="M44.5 54.5 H54.5 C59.2 54.5 61.8 56.8 61.8 60.2 C61.8 63.6 59.2 65.8 54.5 65.8 H44.5 Z"
-            stroke="var(--bronze)"
-            stroke-width="4"
-          />
-          <line x1="50" y1="22" x2="50" y2="78" stroke="var(--bronze)" stroke-width="2.5" />
-        </svg>
-        <span class="text-[12px] font-bold tracking-[.2em]">BARKERTONS</span>
-      </a>
-      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] uppercase tracking-[.12em] text-[#77736d]">
+  <footer id="site-footer" class="site-footer">
+    <div class="mx-auto flex max-w-[1440px] flex-col justify-between gap-4 px-5 py-4 sm:flex-row sm:items-center md:px-10">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] uppercase tracking-[.12em] text-white/75">
         <a class="transition-colors hover:text-[#a88b62]" href="tel:+447470292634">07470 292634</a>
         <span class="hidden sm:inline text-[#a88b62]">/</span>
         <a class="lowercase transition-colors hover:text-[#a88b62]" href="mailto:barkertons@outlook.com">barkertons@outlook.com</a>
       </div>
-      <a class="text-[10px] font-bold uppercase tracking-[.12em] text-[#555] hover:text-[#a88b62]" href="#top">Back to top ↑</a>
+      <a class="text-[10px] font-bold uppercase tracking-[.12em] text-[#a88b62] transition-opacity hover:opacity-80" href="#top">Back to top ↑</a>
     </div>
   </footer>
 
@@ -782,7 +753,7 @@
       if (siteFooter) {
         siteFooter.classList.toggle("is-scrolled", scrolled);
       }
-      document.body.style.paddingBottom = scrolled ? "76px" : "";
+      document.body.style.paddingBottom = scrolled ? "64px" : "";
     }
     updateHeader();
     window.addEventListener("scroll", updateHeader, { passive: true });
